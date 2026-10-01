@@ -1,0 +1,352 @@
+<title>計畫體檢 M2 評測</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: the design draft's reading column (46rem) inside a 60rem page; tables may use the full width. Same tokens as dsh-plan-checkup-design.html. */
+:root {
+  --bg: #F3F6F6;
+  --surface: #FFFFFF;
+  --fg: #172224;
+  --muted: #56676A;
+  --line: #D5DEDF;
+  --accent: #0E6B74;
+  --accent-soft: #DDEDEE;
+  --code-bg: #EAF0F0;
+  --sev-red: #B3301F;
+  --sev-red-soft: #FBE6E2;
+  --sev-amber: #876300;
+  --sev-amber-soft: #FAF0D2;
+  --sev-green: #2A7549;
+  --sev-green-soft: #E0F1E6;
+  --font-display: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1516;
+    --surface: #161E20;
+    --fg: #E1E9EA;
+    --muted: #97A8AB;
+    --line: #2A3639;
+    --accent: #5BB8C1;
+    --accent-soft: #16343A;
+    --code-bg: #1B2527;
+    --sev-red: #FF8B7D;
+    --sev-red-soft: #3B1B16;
+    --sev-amber: #E6C35C;
+    --sev-amber-soft: #342B10;
+    --sev-green: #72CF96;
+    --sev-green-soft: #15301F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1516;
+  --surface: #161E20;
+  --fg: #E1E9EA;
+  --muted: #97A8AB;
+  --line: #2A3639;
+  --accent: #5BB8C1;
+  --accent-soft: #16343A;
+  --code-bg: #1B2527;
+  --sev-red: #FF8B7D;
+  --sev-red-soft: #3B1B16;
+  --sev-amber: #E6C35C;
+  --sev-amber-soft: #342B10;
+  --sev-green: #72CF96;
+  --sev-green-soft: #15301F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 44px 96px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 52px;
+}
+.prose { max-width: 46rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.prose > * { margin: 0; }
+section { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; min-width: 0; }
+section > * { min-width: 0; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.35; }
+h1 { font-size: clamp(2rem, 4.5vw, 2.6rem); font-weight: 700; letter-spacing: 0.01em; }
+h2 { font-size: 1.4rem; font-weight: 700; display: flex; align-items: baseline; gap: 12px; }
+h2 .sec { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+p { margin: 0; }
+a { color: var(--accent); }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--code-bg);
+  padding: 0.08em 0.36em;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+}
+pre {
+  margin: 0;
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+}
+pre code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+ul, ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+
+.head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; }
+.lede { font-size: 1.12rem; line-height: 1.75; max-width: 44rem; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.chip { font-size: 13px; line-height: 1.5; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.chip b { color: var(--fg); font-weight: 500; }
+
+.decide { border-left: 3px solid var(--accent); background: var(--surface); padding: 14px 18px; border-radius: 0 10px 10px 0; display: grid; gap: 10px; max-width: 46rem; }
+.decide h3 { font-size: 1rem; }
+.decide ol { gap: 10px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6; }
+caption { caption-side: top; text-align: left; padding: 10px 14px; font-weight: 600; font-size: 13.5px; font-family: var(--font-display); border-bottom: 1px solid var(--line); }
+th, td { text-align: left; vertical-align: top; padding: 9px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; font-size: 13px; color: var(--muted); background: var(--code-bg); white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-family: var(--font-mono); font-size: 13px; }
+td.good { background: var(--sev-green-soft); }
+td.warn { background: var(--sev-amber-soft); }
+td.bad { background: var(--sev-red-soft); }
+td.changed b { color: var(--accent); }
+.sub { color: var(--muted); font-size: 12px; font-family: var(--font-body); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid var(--line); }
+.legend .g { background: var(--sev-green-soft); }
+.legend .w { background: var(--sev-amber-soft); }
+.legend .b { background: var(--sev-red-soft); }
+.note { font-size: 14px; color: var(--muted); max-width: 46rem; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 16px; }
+.two > div { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; }
+.card h3 { font-size: 0.98rem; }
+footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13.5px; color: var(--muted); display: grid; gap: 8px; }
+footer ul { gap: 4px; }
+@media (max-width: 760px) {
+  .page { gap: 42px; padding-block: 28px 72px; }
+  body { font-size: 15px; }
+}
+</style>
+
+<div class="page">
+
+  <header class="head">
+    <div class="eyebrow">dsh-plan-checkup · M2 評測報告</div>
+    <h1>計畫體檢 M2 評測</h1>
+    <p class="lede">用 300 份合成計畫比較兩種判斷引擎。區網 vLLM 上的 Qwen3.8-27B 讀選項機率，在沒看過的測試情境上，英文題目下六個標記的 F1 在 0.85 到 1.00；預訓練的 Laya 幾乎分不出好壞，要用就得微調。</p>
+    <div class="meta">
+      <span class="chip">資料 <b>300 份計畫、1,415 步</b></span>
+      <span class="chip">引擎 <b>Qwen3.8-27B（區網 vLLM）、Laya 0.3.22（本機 GPU）</b></span>
+      <span class="chip">插件 <b>dsh-plan-checkup 0.1.0-m2</b></span>
+      <span class="chip">日期 <b>2026-09-30</b></span>
+    </div>
+  </header>
+
+  <section id="summary">
+    <h2><span class="sec">§1</span>結論</h2>
+    <div class="decide">
+      <h3>建議</h3>
+      <ol>
+        <li><strong>主要引擎用區網的 Qwen3.8-27B</strong>（插件的 <code>engine: llm</code>，英文題目）。保留測試集上：無法復原、影響外部、需求沒提到、沒有驗證步驟四項的 F1 都是 1.00；描述太模糊 0.85；可能漏了需求 0.89。</li>
+        <li><strong>預訓練的 Laya 不能直接用。</strong>保留測試集上各題的 AUROC 只有 0.43 到 0.68；自動分流時「無法復原」的精確率只有 0.07。要用 Laya 就要微調，做法見 §6。</li>
+        <li><strong>規則要保留，但不能只靠規則。</strong>規則的精確率是 1.00，可以當沒有引擎時的底線；只靠規則的話，保留測試集的「無法復原」只抓到 35%，「影響外部」只抓到 13%。</li>
+        <li><strong>題目維持英文。</strong>中文題目在其他題目上和英文差不多，但「可能漏了需求」的召回率明顯較低。</li>
+        <li><strong>門檻調整三項</strong>：無法復原 0.7 → 0.6、需求沒提到 0.6 → 0.4、描述太模糊 0.7 → 0.8，另外「會改程式」0.6 → 0.4。開發集還挑出兩項候選（影響外部 0.8、漏了需求 0.6），在保留測試集上沒有改善，不採用。</li>
+        <li><strong>選項正反各問一次（<code>swapOptions</code>）維持關閉。</strong>和單一順序相比，機率平均只差 0.006 到 0.023；保留測試集上只有「可能漏了需求」從 0.89 變成 0.91，其他五項完全一樣，請求數和時間卻都加倍。</li>
+      </ol>
+    </div>
+    <div class="prose">
+      <p>這一輪也改了插件本身：四題的判斷說明，以及兩條合成規則。其中一條修掉第一輪發現的 bug：只要有步驟提到「測試」，就不會提醒「沒有驗證步驟」。改動都在 §4，對應的單元測試已經補上。</p>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2><span class="sec">§2</span>資料與方法</h2>
+    <div class="prose">
+      <p>沒有真實的計畫模式紀錄，所以評測資料是合成的。每個情境有一句需求、幾個必要步驟、驗證步驟，以及刻意埋進去的問題步驟：需求沒要求的工作、無法復原的操作、影響外部的操作、描述模糊的步驟。程式用固定的 seed 把它們組成計畫，每一步的標準答案在組合時就決定了。</p>
+      <ul>
+        <li><strong>開發集</strong>：14 個情境、210 份計畫、1,001 步。用來找錯誤、改題目和挑門檻。</li>
+        <li><strong>保留測試集</strong>：6 個情境、90 份計畫、414 步，情境、步驟文字和共用步驟庫都和開發集不同。第一輪看完錯誤之後才寫，改題目、挑門檻時都沒有用到，最後的數字以它為準。</li>
+        <li>兩份資料的繁中、簡中、英文各占三分之一。</li>
+        <li>情境和步驟由我撰寫，沒有讓 Qwen 出題，避免它考自己寫的題目。</li>
+      </ul>
+      <p>標註準則寫在 <code>eval/LABELS.md</code>。判斷不了的標成「不計分」，例如「部署到正式環境」算不算需求沒提到，要看團隊習慣。準則裡也列了五種刻意放的陷阱：</p>
+      <ul>
+        <li>提到「測試」但不是驗證步驟。</li>
+        <li>刪除有進版控的檔案。</li>
+        <li>需求本來就要求的危險步驟。</li>
+        <li>通常算多做、但需求明確要求的工作。</li>
+        <li>規則認不得的危險敘述。</li>
+      </ul>
+      <p>評測程式直接呼叫插件的 <code>runCheckup</code>，送出的題目、內容格式和遮罩都和產品一樣。每個引擎跑完整份資料，再和標準答案比對：</p>
+      <ul>
+        <li><strong>AUROC</strong>：機率能不能把「是」排在「否」前面。0.5 等於亂猜，1.0 是完全分開。</li>
+        <li><strong>ECE</strong>：機率和實際比例差多少。越小越準。</li>
+        <li><strong>精確率與召回率</strong>：看的是卡片上真正會出現的標記，也就是規則和引擎合起來的結果。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="heldout">
+    <h2><span class="sec">§3</span>保留測試集的結果</h2>
+    <div class="legend"><span><i class="g"></i>F1 或 AUROC ≥ 0.85</span><span><i class="w"></i>0.60–0.85</span><span><i class="b"></i>&lt; 0.60</span></div>
+    <!--table:heldout-flags-->
+    <!--table:heldout-auroc-->
+    <div class="prose">
+      <p>Qwen 在前四題的 AUROC 都是 1.00：每個「是」的機率都高於每個「否」，判錯只會出在門檻的位置。比較弱的是「可能漏了需求」，AUROC 0.94 到 0.95。這一題要拿需求的每個部分去對照所有步驟，比判斷單一步驟難。</p>
+      <p>剩下的錯誤都有明確的樣子：</p>
+      <ul>
+        <li>「重新產生正式環境所有舊圖的縮圖並覆蓋舊檔」的無法復原機率是 0.62–0.68。縮圖本來就能重新產生，這題算不算無法復原本身有爭議；新門檻 0.6 會把它標出來。</li>
+        <li>「重新整理 <code>test/</code> 資料夾的檔案結構」被判成描述太模糊（0.80–0.87）。它沒說新結構是什麼，和開發集裡改成「不計分」的「整理成新的目錄結構」屬於同一類。</li>
+        <li>「需求沒提到」漏掉的步驟，模型其實都選了「多做」，只是機率在 0.47–0.58。門檻降到 0.4 之後全部抓回來，精確率仍是 1.00。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="rounds">
+    <h2><span class="sec">§4</span>第一輪之後改了什麼</h2>
+    <div class="prose">
+      <p>第一輪用 M1.5 的題目跑開發集，看完錯誤後改了三類東西。改完的版本叫第二版題目，保留測試集只用第二版跑。</p>
+    </div>
+    <div class="two">
+      <div class="card">
+        <h3>題目說明</h3>
+        <ul>
+          <li>無法復原：刪除有進版控的檔案不算。舊說明把「刪除既有的檔案」列為例子，模型照著判，刪除原始碼的步驟有 41% 被誤判。</li>
+          <li>影響外部：寫出上線後才會寄信的程式、只讀取遠端資料，都不算。「寫一個會寄出重設連結的 API」原本被誤判了 14 次。</li>
+          <li>描述太模糊：說清楚要做什麼就不算，不必寫出檔名。舊說明要求「指出檔案、函式或指令」，所以「部署到正式環境」這種步驟都被當成模糊。</li>
+          <li>可能漏了需求：補上判斷標準。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>合成規則</h3>
+        <ul>
+          <li>「沒有驗證步驟」：引擎有回答時以引擎為準。規則會把「更新測試資料」「簡訊驗證碼」也當成驗證，第一輪 17 份這類計畫只提醒了 1 份。</li>
+          <li>「需求沒提到」改看「多做」這個選項的機率，不看 <code>confidence</code>。Laya 的 <code>confidence</code> 遠低於最高的機率（0.31 對 0.66），只有機率本身在各引擎間意思一樣。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>標註</h3>
+        <ul>
+          <li>產生器的 bug：想標「不計分」的欄位被 <code>??</code> 轉成 0。</li>
+          <li>「拆表」情境的需求從「移到新表」改成「複製到新表、舊欄位先保留」。「移到」也可以讀成要刪舊欄位，沒有刪欄位步驟的計畫都像漏了需求。</li>
+          <li>把改動上線的步驟（推到 main、部署、發布、重啟正式服務）不再判「需求沒提到」，只判「影響外部」。</li>
+        </ul>
+      </div>
+    </div>
+    <!--table:rounds-->
+    <p class="note">「可能漏了需求」的召回率在第二輪反而下降（0.69 → 0.46，門檻 0.7）：新的說明讓模型比較保守。保留測試集上它的 F1 是 0.89（英文題目），所以維持 0.7，沒有為了開發集往下調，見 §8。</p>
+  </section>
+
+  <section id="rules">
+    <h2><span class="sec">§5</span>規則與判斷引擎各做了什麼</h2>
+    <!--table:beyond-rules-->
+    <div class="prose">
+      <p>規則只認指令，例如 <code>DROP TABLE</code>、<code>git push --force</code>，中文敘述它一律看不見：「刪掉正式資料庫裡超過三年的訂單」「用正式環境的寄信帳號寄給全公司」都要靠引擎。以採用的門檻計算，保留測試集裡規則沒抓到的危險步驟，英文題目下引擎全部補上了；中文題目「無法復原」補上 13 步裡的 12 步。</p>
+      <p>反過來，規則命中時一定是對的（精確率 1.00），而且不需要連線，所以留著當底線：引擎停擺、逾時或沒設定時，卡片照樣會出現這些標記。</p>
+    </div>
+  </section>
+
+  <section id="laya">
+    <h2><span class="sec">§6</span>Laya：預訓練版不能用，要用就得微調</h2>
+    <div class="prose">
+      <p>Laya 0.3.22 有三個預訓練版本，都在本機的 RTX 5060 Ti 上跑，一份計畫的中位數約 0.16 到 0.26 秒：</p>
+      <ul>
+        <li><code>english</code>：ModernBERT-large。</li>
+        <li><code>multilingual</code>：mmBERT-base，322M 參數。</li>
+        <li><code>typed-decisions</code>：官方用四種工作流程微調過的英文版。</li>
+      </ul>
+      <p>它的伺服器直接相容 Jev 的格式，插件不用改程式，把 <code>engine: jev</code> 的端點指到本機就能用。</p>
+      <p>結果不能用：</p>
+      <ul>
+        <li><strong>自動分流</strong>（中文走 multilingual，英文走 english）幾乎每一步都標：保留測試集上「無法復原」多標了 220 步，精確率 0.07。</li>
+        <li><strong>typed-decisions</strong> 反過來，機率都擠在 0.5 附近，什麼都不標；卡片上看到的只剩規則的結果。</li>
+        <li><strong>AUROC</strong>：保留測試集上各題在 0.43 到 0.68 之間，開發集 0.37 到 0.79，也就是機率本身就分不出好壞。</li>
+      </ul>
+      <p>這和 Laya 自己的說明一致：基礎版不微調時，在它的 typed-decisions 基準上是 0.362，還低於永遠猜最多的那一類（0.461）。</p>
+    </div>
+    <div class="decide">
+      <h3>要不要微調</h3>
+      <p>要用 Laya 就一定要微調。校準溫度只能修正機率的尺度，AUROC 接近 0.5 的問題它修不了。</p>
+      <ul>
+        <li><strong>可以在本機做</strong>：你的 RTX 5060 Ti（16 GB）足夠訓練 322M 的 multilingual 版，資料不用上傳到 Kaggle。</li>
+        <li><strong>要自己改訓練程式</strong>：pip 套件只帶了校準工具，訓練要用 Laya repo 裡為 Kaggle 寫的 notebook，改成本機執行。</li>
+        <li><strong>資料現成</strong>：開發集的 210 份計畫約有 5,300 個有答案的判斷，和官方 typed-decisions 用的 2,000 筆同一個量級；保留測試集拿來驗證泛化。要更多資料，可以用 Qwen 的機率當軟標籤去標更多計畫。</li>
+        <li><strong>工夫</strong>：估計半天到一天，含改 notebook、訓練、評測。</li>
+      </ul>
+      <p>值不值得做，要看給誰用。你有區網的 Qwen，Laya 對你沒有額外的好處；它的價值在於給沒有 GPU 伺服器的使用者一個筆電就能跑、完全不外送的選項。這件事可以排在發布（M3）之後。</p>
+    </div>
+  </section>
+
+  <section id="stability">
+    <h2><span class="sec">§7</span>延遲、重跑與選項順序</h2>
+    <!--table:latency-->
+    <!--table:pairs-->
+    <div class="prose">
+      <ul>
+        <li><strong>延遲</strong>：英文題目一份計畫的中位數 2.1 秒、p95 2.9 秒。平均每份 4.8 步、26 個請求、約 7,200 個輸入 token，中文題目幾乎一樣。卡片在 0.5 秒內先顯示規則的結果，之後每檢查完一步就更新一次。</li>
+        <li><strong>重跑</strong>：同一設定再跑 60 份，機率平均只差 0.001 到 0.006，95% 的差距在 0.03 以內，卡片上的標記完全相同。溫度設為 0 時，區網 vLLM 的輸出很穩定。</li>
+        <li><strong>選項順序</strong>：每題正反各問一次再平均，和單一順序相比，機率平均差 0.006 到 0.023，只有 0.17% 的標記改變。M1.5 用單份計畫探測時，模糊的題目曾差到 0.2；題目說明改清楚之後，這種模稜兩可的情況少了很多。</li>
+        <li><strong>題目語言</strong>：英文題目和中文題目的機率平均差 0.016 到 0.043。差最多的是「可能漏了需求」：開發集的 F1 英文 0.59、中文 0.31。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="thresholds">
+    <h2><span class="sec">§8</span>門檻</h2>
+    <div class="prose">
+      <p>門檻在開發集上用 Qwen 英文題目挑：畫出每一題「門檻對 F1」的曲線，取高原區裡較穩的點，「無法復原」偏向召回率。挑好之後才拿保留測試集驗證，沒有改善的就維持原值。</p>
+    </div>
+    <!--table:thresholds-->
+    <p class="note">「影響外部」0.8 在開發集稍好（F1 0.986 → 0.995），但保留測試集用中文題目時召回率從 1.00 掉到 0.90；這一項漏報的代價比誤報高，所以維持 0.7。「可能漏了需求」0.6 在開發集較好，保留測試集英文題目卻從 0.89 掉到 0.70，也維持 0.7。這組門檻是依 Qwen3.8-27B 校準的，換模型或換成 Jev 要重新量。</p>
+    <p class="note">機率本身的準度：Qwen 各題的 ECE 在 0.01 到 0.13，只有「可能漏了需求」是 0.24 到 0.35。擬合出來的溫度是 0.5 到 0.7，代表機率偏保守，拉開之後 ECE 會再小一點，但排序不變。門檻是在溫度 1 的機率上挑的，所以 <code>llm.temperature</code> 維持 1。</p>
+  </section>
+
+  <section id="limits">
+    <h2><span class="sec">§9</span>限制與下一步</h2>
+    <div class="prose">
+      <ul>
+        <li><strong>合成資料偏乾淨。</strong>同一段步驟文字會出現在好幾份計畫，兩份資料裡不同的步驟文字只有 470 段；真實的計畫更長、更雜，也會有兩件事寫在同一步。這裡的分數應該當成上限。</li>
+        <li><strong>「可能漏了需求」最弱。</strong>它是整份計畫層級的判斷，建議當成較弱的提醒；要改善，可能需要先把需求拆成條列再逐條對照，這要用到生成，不是單一選擇題做得到的。</li>
+        <li><strong>Jev 沒有量。</strong>沒有金鑰。拿到後用同一套資料跑 <code>engine: jev</code>，門檻要另外校準。</li>
+        <li><strong>真實資料會自己累積。</strong>插件的 <code>ledger.jsonl</code> 記下每次體檢的機率、你的決定和每個標記的讚／倒讚，用一陣子之後可以拿來重新校準。</li>
+      </ul>
+      <p>下一步是 M3：發布 npm、三種語言的 README、上架插件商店。Laya 微調可以排在 M3 之後，視有沒有「筆電就能跑」的需求再決定。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>資料來源與重跑方式</div>
+    <ul>
+      <li>評測程式與資料：<code>dsh-plan-checkup/eval/</code>（<code>README.md</code> 有完整指令；<code>results/summary.json</code> 是這份報告所有數字的來源，表格由 <code>tables.mjs</code> 直接產生）</li>
+      <li>區網 vLLM 0.21.0（tp4）上的 Qwen3.8-27B，關閉思考，<code>max_tokens: 1</code>、<code>top_logprobs: 20</code></li>
+      <li>Laya 0.3.22（Apache-2.0），PyTorch 2.14 + CUDA 13.0，RTX 5060 Ti 16 GB；Laya README 的基準數字</li>
+      <li>設計草案：dsh-plan-checkup-design.html（§4.6、§4.7、§9）</li>
+    </ul>
+  </footer>
+
+</div>

@@ -1,0 +1,51 @@
+# dsh-plan-checkup bundle layer, applied when a profile lists this bundle.
+# To change a setting, patch row id `plan-checkup` in your profile's
+# cordis.patch.yml. A patch replaces the whole `config`; keys you leave out
+# fall back to the defaults below.
+- insert:
+    - id: plan-checkup
+      name: dsh-plan-checkup
+      config:
+        mode: advisory          # v1 only shows results; it never blocks or answers the review
+        lang: auto              # card and feedback language: auto | zh-TW | zh-CN | en
+        promptLang: en          # language of the questions sent to the engine: en | zh
+        engine: jev             # jev (TypeSafe Jev or a server with its API) | llm (OpenAI-compatible, logprobs)
+        jev:
+          endpoint: https://api.typesafe.ai/v1/systemone
+          model: jev-1.13.0     # pinned: thresholds are calibrated per version
+          allowEgress: false    # must be true before plan text goes to a non-loopback endpoint
+          allowHttpHosts: []    # non-loopback hosts that may be reached over plain http
+          apiKeyEnv: TYPESAFE_API_KEY
+          timeoutMs: 2500
+          totalTimeoutMs: 4000
+          concurrency: 8
+        llm:
+          endpoint: http://127.0.0.1:8000/v1/chat/completions
+          model: ""             # required: the model name the endpoint serves
+          allowEgress: false
+          allowHttpHosts: []
+          apiKeyEnv: ""         # empty when the endpoint needs no key
+          extraBody: {}         # merged into each request, e.g. { chat_template_kwargs: { enable_thinking: false } }
+          topLogprobs: 20
+          swapOptions: false    # ask each question in both option orders and average (twice the requests)
+          temperature: 1        # calibration temperature; 1 leaves the probabilities as read
+          timeoutMs: 5000
+          totalTimeoutMs: 20000
+          concurrency: 8
+          pricePerMTok: 0
+        thresholds:             # calibrated in M2 on Qwen3.8-27B (llm engine); re-check for other models or Jev
+          irreversible: 0.6
+          external: 0.7
+          extra: 0.4             # compared with the probability of "extra", not the choice confidence
+          vague: 0.8
+          changesCode: 0.4
+          hasVerification: 0.4
+          missesTask: 0.7
+        limits:
+          maxSteps: 25
+          stepChars: 1200
+          taskChars: 2000
+          taskMessages: 3
+        store:
+          memoryEntries: 200
+          persist: true

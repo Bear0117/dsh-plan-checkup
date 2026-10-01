@@ -1,0 +1,25 @@
+# M0 overlay: point the web profile at the local mock model (m0/mock-llm.mjs).
+#   node m0/mock-llm.mjs 18765 .m0/mock-requests.jsonl
+#   DSH_HOME=.m0/home M0_MOCK_API_KEY=mock dsh web --port 3190 --no-open --patch m0/overlay.yml
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      m0-mock:
+        displayName: M0 mock planner
+        api: openai-completions
+        baseURL: http://127.0.0.1:18765/v1
+        compat:
+          supportsDeveloperRole: false
+          maxTokensField: max_tokens
+        models:
+          - id: mock-planner
+            name: mock-planner
+            contextWindow: 128000
+            maxTokens: 4096
+        apiKeyEnv: M0_MOCK_API_KEY
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: m0-mock
+    model: mock-planner

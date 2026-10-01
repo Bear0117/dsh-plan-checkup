@@ -1,0 +1,10 @@
+{"ts":"2026-09-30T02:20:55.300Z","listening":"http://127.0.0.1:18765/v1"}
+{"ts":"2026-09-30T02:22:04.257Z","n":1,"stream":true,"model":"mock-planner","messages":4,"lastRole":"user","tools":26,"offersExitPlanMode":true,"answer":"tool"}
+{"ts":"2026-09-30T02:22:04.261Z","n":2,"stream":true,"model":"mock-planner","messages":2,"lastRole":"user","tools":0,"offersExitPlanMode":false,"answer":"text"}
+{"ts":"2026-09-30T02:24:01.498Z","n":3,"stream":true,"model":"mock-planner","messages":6,"lastRole":"tool","tools":26,"offersExitPlanMode":true,"answer":"text"}
+{"ts":"2026-09-30T02:26:19.987Z","n":4,"stream":true,"model":"mock-planner","messages":4,"lastRole":"user","tools":26,"offersExitPlanMode":true,"answer":"tool"}
+{"ts":"2026-09-30T02:26:19.999Z","n":5,"stream":true,"model":"mock-planner","messages":2,"lastRole":"user","tools":0,"offersExitPlanMode":false,"answer":"text"}
+{"ts":"2026-09-30T02:26:32.952Z","n":6,"stream":true,"model":"mock-planner","messages":6,"lastRole":"tool","tools":26,"offersExitPlanMode":true,"answer":"text"}
+{"ts":"2026-09-30T02:26:59.789Z","n":7,"stream":true,"model":"mock-planner","messages":4,"lastRole":"user","tools":26,"offersExitPlanMode":true,"answer":"tool"}
+{"ts":"2026-09-30T02:26:59.791Z","n":8,"stream":true,"model":"mock-planner","messages":2,"lastRole":"user","tools":0,"offersExitPlanMode":false,"answer":"text"}
+{"ts":"2026-09-30T02:27:07.303Z","n":9,"stream":true,"model":"mock-planner","messages":6,"lastRole":"tool","tools":26,"offersExitPlanMode":true,"answer":"text"}

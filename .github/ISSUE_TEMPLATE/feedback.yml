@@ -1,0 +1,55 @@
+name: Feedback / 意见反馈
+description: A wrong or missed flag, something confusing, or an idea. / 标错或漏标、看不懂的地方，或是建议。
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying Plan Checkup. Please don't paste keys, tokens or anything private; the plan excerpt is optional.
+        感谢试用计划体检。请不要贴上密钥、token 或任何私人内容；计划节录可以不填。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What happened? / 发生了什么？
+      options:
+        - A flag was wrong / 标记标错了
+        - A problem was not flagged / 有问题没有标出来
+        - The card or panel was confusing / 卡片或面板看不懂
+        - It did not run, or showed an error / 没有运行，或出现错误
+        - An idea / 建议
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / 细节
+      description: Which step and which flag, and what you expected instead. / 哪一步、哪个标记，你预期的结果是什么。
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version / 插件版本
+      placeholder: 0.1.0
+  - type: input
+    id: engine
+    attributes:
+      label: Judgment engine / 判断引擎
+      description: For example "llm Qwen3.8-27B", "jev jev-1.13.0" or "rules only". / 例如 "llm Qwen3.8-27B"、"jev jev-1.13.0" 或 "rules only"。
+  - type: input
+    id: dsh-version
+    attributes:
+      label: dsh version / dsh 版本
+      placeholder: 0.2.0-rc.2
+  - type: textarea
+    id: plan
+    attributes:
+      label: Plan excerpt (optional) / 计划节录（可不填）
+      description: Remove anything private before pasting. / 贴上前请先删掉私人或机密内容。
+      render: markdown
+  - type: textarea
+    id: ledger
+    attributes:
+      label: Lines from ledger.jsonl (optional) / ledger.jsonl 的相关行（可不填）
+      description: "~/.dsh/plan-checkup/ledger.jsonl records each checkup's probabilities, flags and plan title, but no step text; check the title before pasting. / ~/.dsh/plan-checkup/ledger.jsonl 记录每次体检的概率、标记和计划标题，不含步骤内容；贴上前请确认标题可以公开。"
+      render: json

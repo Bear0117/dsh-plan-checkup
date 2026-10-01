@@ -1,0 +1,2 @@
+# Keep LF in the working tree on Windows too: the JSONL and YAML readers split on LF.
+* text=auto eol=lf

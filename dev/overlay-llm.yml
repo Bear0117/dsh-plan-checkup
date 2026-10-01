@@ -1,0 +1,37 @@
+# Development overlay for the llm engine: mock planner + mock logprob endpoint,
+# both on loopback, so nothing leaves the machine and no key is needed.
+#   node m0/mock-llm.mjs 18765 .dev/mock-llm.jsonl
+#   node dev/mock-logprobs.mjs 18767 .dev/mock-logprobs.jsonl
+#   DSH_HOME=.m0/home M0_MOCK_API_KEY=mock dsh web --patch dev/overlay-llm.yml --port 3190 --no-open
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      m0-mock:
+        displayName: M0 mock planner
+        api: openai-completions
+        baseURL: http://127.0.0.1:18765/v1
+        compat:
+          supportsDeveloperRole: false
+          maxTokensField: max_tokens
+        models:
+          - id: mock-planner
+            name: mock-planner
+            contextWindow: 128000
+            maxTokens: 4096
+        apiKeyEnv: M0_MOCK_API_KEY
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: m0-mock
+    model: mock-planner
+# Replaces the whole plan-checkup row config (Cordis patch semantics).
+- id: plan-checkup
+  config:
+    mode: advisory
+    lang: zh-TW
+    promptLang: en
+    engine: llm
+    llm:
+      endpoint: http://127.0.0.1:18767/v1/chat/completions
+      model: mock-judge

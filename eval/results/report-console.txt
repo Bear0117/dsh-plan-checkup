@@ -1,0 +1,401 @@
+dev: 210 plans, 1001 steps; test: 90 plans, 414 steps
+
+== irreversible: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.64  0.56  0.08  0.74  0.14  (t= 0.90 f1= 0.24, T=8 ece→ 0.46)  n=993 pos=69
+  laya-ft-r3          1.00  0.01  1.00  0.87  0.93  (t= 0.10 f1= 0.99, T=1 ece→ 0.01)  n=993 pos=69
+  laya-ft-t1          0.91  0.02  1.00  0.74  0.85  (t= 0.02 f1= 0.91, T=1.3 ece→ 0.00)  n=993 pos=69
+  laya-ft             0.94  0.06  1.00  0.74  0.85  (t= 0.15 f1= 0.92, T=0.6 ece→ 0.01)  n=993 pos=69
+  laya-multilingual   0.71  0.71  0.07  0.99  0.14  (t= 0.90 f1= 0.29, T=8 ece→ 0.47)  n=993 pos=69
+  laya-typed          0.79  0.36  0.33  0.23  0.27  (t= 0.51 f1= 0.32, T=0.5 ece→ 0.30)  n=993 pos=69
+  qwen-en-r2          1.00  0.04  1.00  0.95  0.98  (t= 0.60 f1= 0.98, T=0.5 ece→ 0.01)  n=283 pos=22
+  qwen-en-swap        1.00  0.04  1.00  0.96  0.98  (t= 0.60 f1= 0.98, T=0.5 ece→ 0.01)  n=993 pos=69
+  qwen-en             1.00  0.04  0.99  0.99  0.99  (t= 0.60 f1= 0.99, T=0.5 ece→ 0.01)  n=993 pos=69
+  qwen-zh             1.00  0.05  1.00  0.85  0.92  (t= 0.53 f1= 0.94, T=0.5 ece→ 0.01)  n=993 pos=69
+  test-laya-auto      0.58  0.56  0.05  0.55  0.09  (t= 0.86 f1= 0.15, T=8 ece→ 0.47)  n=414 pos=20
+  test-laya-ft-r2     1.00  0.01  0.95  1.00  0.98  (t= 0.60 f1= 0.98, T=1 ece→ 0.01)  n=414 pos=20
+  test-laya-ft-r3     1.00  0.02  0.80  1.00  0.89  (t= 0.94 f1= 0.98, T=0.8 ece→ 0.02)  n=414 pos=20
+  test-laya-ft-t1     1.00  0.01  0.95  1.00  0.98  (t= 0.60 f1= 0.98, T=1 ece→ 0.01)  n=414 pos=20
+  test-laya-ft        1.00  0.07  0.95  0.90  0.92  (t= 0.53 f1= 0.98, T=0.5 ece→ 0.01)  n=414 pos=20
+  test-laya-multilingual  0.58  0.71  0.05  0.85  0.09  (t= 0.86 f1= 0.14, T=8 ece→ 0.49)  n=414 pos=20
+  test-laya-typed     0.68  0.37   -    0.00   -    (t= 0.51 f1= 0.17, T=0.5 ece→ 0.31)  n=414 pos=20
+  test-qwen-en-swap   1.00  0.04  1.00  1.00  1.00  (t= 0.60 f1= 1.00, T=0.5 ece→ 0.01)  n=414 pos=20
+  test-qwen-en        1.00  0.04  1.00  1.00  1.00  (t= 0.60 f1= 1.00, T=0.5 ece→ 0.01)  n=414 pos=20
+  test-qwen-zh        1.00  0.05  1.00  0.95  0.97  (t= 0.59 f1= 1.00, T=0.5 ece→ 0.01)  n=414 pos=20
+  v1-laya-auto        0.65  0.56  0.08  0.75  0.14  (t= 0.90 f1= 0.22, T=8 ece→ 0.45)  n=993 pos=69
+  v1-laya-multilingual  0.70  0.71  0.07  0.99  0.13  (t= 0.92 f1= 0.25, T=8 ece→ 0.47)  n=993 pos=69
+  v1-laya-typed       0.77  0.34  0.33  0.22  0.26  (t= 0.54 f1= 0.31, T=0.5 ece→ 0.27)  n=993 pos=69
+  v1-qwen-en          1.00  0.04  0.85  0.99  0.91  (t= 0.82 f1= 0.95, T=0.6 ece→ 0.03)  n=993 pos=69
+== external: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.49  0.59  0.10  0.52  0.17  (t= 0.57 f1= 0.21, T=8 ece→ 0.42)  n=1001 pos=108
+  laya-ft-r3          1.00  0.01  0.99  0.97  0.98  (t= 0.64 f1= 0.99, T=0.5 ece→ 0.01)  n=1001 pos=108
+  laya-ft-t1          0.92  0.03  0.94  0.79  0.86  (t= 0.03 f1= 0.87, T=1.4 ece→ 0.00)  n=1001 pos=108
+  laya-ft             0.99  0.05  0.98  0.75  0.85  (t= 0.21 f1= 0.88, T=0.6 ece→ 0.01)  n=1001 pos=108
+  laya-multilingual   0.47  0.67  0.10  0.76  0.18  (t= 0.55 f1= 0.20, T=8 ece→ 0.43)  n=1001 pos=108
+  laya-typed          0.66  0.43  0.00  0.00   -    (t= 0.58 f1= 0.26, T=8 ece→ 0.40)  n=1001 pos=108
+  qwen-en-r2          1.00  0.04  0.94  1.00  0.97  (t= 0.96 f1= 1.00, T=0.5 ece→ 0.02)  n=286 pos=32
+  qwen-en-swap        1.00  0.03  0.98  1.00  0.99  (t= 0.77 f1= 0.99, T=0.5 ece→ 0.01)  n=1001 pos=108
+  qwen-en             1.00  0.04  0.97  1.00  0.99  (t= 0.82 f1= 0.99, T=0.5 ece→ 0.02)  n=1001 pos=108
+  qwen-zh             1.00  0.03  0.95  0.98  0.97  (t= 0.88 f1= 0.99, T=0.6 ece→ 0.02)  n=1001 pos=108
+  test-laya-auto      0.56  0.62  0.10  0.68  0.17  (t= 0.71 f1= 0.17, T=8 ece→ 0.46)  n=414 pos=31
+  test-laya-ft-r2     1.00  0.01  0.91  0.94  0.92  (t= 0.98 f1= 0.95, T=1 ece→ 0.02)  n=414 pos=31
+  test-laya-ft-r3     1.00  0.01  1.00  0.97  0.98  (t= 0.70 f1= 0.98, T=0.7 ece→ 0.01)  n=414 pos=31
+  test-laya-ft-t1     1.00  0.01  1.00  0.87  0.93  (t= 0.01 f1= 0.94, T=1.1 ece→ 0.00)  n=414 pos=31
+  test-laya-ft        1.00  0.08  1.00  0.87  0.93  (t= 0.26 f1= 0.94, T=0.5 ece→ 0.02)  n=414 pos=31
+  test-laya-multilingual  0.51  0.68  0.08  0.77  0.15  (t= 0.72 f1= 0.16, T=8 ece→ 0.47)  n=414 pos=31
+  test-laya-typed     0.65  0.45   -    0.00   -    (t= 0.62 f1= 0.25, T=8 ece→ 0.43)  n=414 pos=31
+  test-qwen-en-swap   1.00  0.02  1.00  1.00  1.00  (t= 0.70 f1= 1.00, T=0.5 ece→ 0.00)  n=414 pos=31
+  test-qwen-en        1.00  0.02  1.00  1.00  1.00  (t= 0.70 f1= 1.00, T=0.5 ece→ 0.00)  n=414 pos=31
+  test-qwen-zh        1.00  0.02  1.00  1.00  1.00  (t= 0.70 f1= 1.00, T=0.5 ece→ 0.00)  n=414 pos=31
+  v1-laya-auto        0.48  0.54  0.09  0.44  0.15  (t= 0.41 f1= 0.21, T=8 ece→ 0.41)  n=1001 pos=108
+  v1-laya-multilingual  0.44  0.65  0.10  0.67  0.17  (t= 0.47 f1= 0.20, T=8 ece→ 0.43)  n=1001 pos=108
+  v1-laya-typed       0.61  0.45  0.25  0.01  0.02  (t= 0.60 f1= 0.23, T=8 ece→ 0.40)  n=1001 pos=108
+  v1-qwen-en          1.00  0.05  0.84  0.99  0.91  (t= 0.95 f1= 0.99, T=0.8 ece→ 0.04)  n=1001 pos=108
+== extra: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.58  0.08  0.22  0.11  0.14  (t= 0.28 f1= 0.26, T=0.8 ece→ 0.06)  n=933 pos=123
+  laya-ft-r3          0.99  0.01  1.00  0.95  0.97  (t= 0.12 f1= 0.99, T=1 ece→ 0.01)  n=933 pos=123
+  laya-ft-t1          0.97  0.01  0.97  0.94  0.95  (t= 0.94 f1= 0.97, T=1.1 ece→ 0.00)  n=933 pos=123
+  laya-ft             1.00  0.01  0.97  0.94  0.95  (t= 0.09 f1= 0.97, T=0.9 ece→ 0.00)  n=933 pos=123
+  laya-multilingual   0.59  0.05  0.17  0.06  0.09  (t= 0.19 f1= 0.27, T=0.9 ece→ 0.05)  n=933 pos=123
+  laya-typed          0.56  0.09  0.00  0.00   -    (t= 0.22 f1= 0.24, T=0.7 ece→ 0.02)  n=933 pos=123
+  qwen-en-r2          1.00  0.01  1.00  0.97  0.99  (t= 0.08 f1= 1.00, T=0.8 ece→ 0.01)  n=265 pos=35
+  qwen-en-swap        1.00  0.02  1.00  0.98  0.99  (t= 0.13 f1= 1.00, T=0.6 ece→ 0.01)  n=933 pos=123
+  qwen-en             1.00  0.01  1.00  0.97  0.98  (t= 0.08 f1= 1.00, T=0.7 ece→ 0.01)  n=933 pos=123
+  qwen-zh             1.00  0.02  1.00  0.94  0.97  (t= 0.20 f1= 1.00, T=0.8 ece→ 0.01)  n=933 pos=123
+  test-laya-auto      0.55  0.07  0.10  0.05  0.07  (t= 0.09 f1= 0.27, T=1.1 ece→ 0.07)  n=395 pos=56
+  test-laya-ft-r2     0.97  0.08  0.64  1.00  0.78  (t= 1.00 f1= 0.84, T=2 ece→ 0.12)  n=395 pos=56
+  test-laya-ft-r3     0.96  0.04  0.85  0.82  0.84  (t= 0.08 f1= 0.87, T=1.6 ece→ 0.04)  n=395 pos=56
+  test-laya-ft-t1     0.99  0.06  0.68  1.00  0.81  (t= 1.00 f1= 0.92, T=1.7 ece→ 0.09)  n=395 pos=56
+  test-laya-ft        1.00  0.06  0.68  1.00  0.81  (t= 0.93 f1= 0.95, T=0.9 ece→ 0.06)  n=395 pos=56
+  test-laya-multilingual  0.58  0.04  0.67  0.04  0.07  (t= 0.13 f1= 0.28, T=1 ece→ 0.04)  n=395 pos=56
+  test-laya-typed     0.46  0.08  0.50  0.02  0.03  (t= 0.10 f1= 0.25, T=0.7 ece→ 0.04)  n=395 pos=56
+  test-qwen-en-swap   1.00  0.02  1.00  1.00  1.00  (t= 0.40 f1= 1.00, T=0.5 ece→ 0.01)  n=395 pos=56
+  test-qwen-en        1.00  0.02  1.00  1.00  1.00  (t= 0.40 f1= 1.00, T=0.5 ece→ 0.01)  n=395 pos=56
+  test-qwen-zh        1.00  0.02  1.00  0.95  0.97  (t= 0.22 f1= 1.00, T=0.8 ece→ 0.02)  n=395 pos=56
+  v1-laya-auto        0.58  0.08  0.22  0.11  0.14  (t= 0.28 f1= 0.27, T=0.8 ece→ 0.06)  n=933 pos=123
+  v1-laya-multilingual  0.59  0.05  0.19  0.07  0.10  (t= 0.17 f1= 0.27, T=0.9 ece→ 0.05)  n=933 pos=123
+  v1-laya-typed       0.56  0.09  0.00  0.00   -    (t= 0.21 f1= 0.24, T=0.7 ece→ 0.02)  n=933 pos=123
+  v1-qwen-en          1.00  0.01  1.00  0.96  0.98  (t= 0.09 f1= 1.00, T=0.8 ece→ 0.01)  n=933 pos=123
+== vague: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.52  0.58  0.05  0.28  0.09  (t= 0.44 f1= 0.11, T=8 ece→ 0.47)  n=974 pos=50
+  laya-ft-r3          1.00  0.01  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=0.5 ece→ 0.00)  n=974 pos=50
+  laya-ft-t1          1.00  0.00  1.00  0.98  0.99  (t= 0.77 f1= 1.00, T=0.5 ece→ 0.00)  n=974 pos=50
+  laya-ft             1.00  0.06  1.00  0.98  0.99  (t= 0.56 f1= 1.00, T=0.5 ece→ 0.00)  n=974 pos=50
+  laya-multilingual   0.47  0.69  0.05  0.34  0.08  (t= 0.61 f1= 0.10, T=8 ece→ 0.48)  n=974 pos=50
+  laya-typed          0.51  0.41   -    0.00   -    (t= 0.44 f1= 0.10, T=0.5 ece→ 0.37)  n=974 pos=50
+  qwen-en-r2          1.00  0.11  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=0.5 ece→ 0.03)  n=279 pos=14
+  qwen-en-swap        1.00  0.09  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=0.5 ece→ 0.02)  n=974 pos=50
+  qwen-en             1.00  0.11  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=0.5 ece→ 0.03)  n=974 pos=50
+  qwen-zh             1.00  0.08  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=0.5 ece→ 0.02)  n=974 pos=50
+  test-laya-auto      0.50  0.57  0.03  0.21  0.05  (t= 0.88 f1= 0.08, T=8 ece→ 0.48)  n=414 pos=14
+  test-laya-ft-r2     1.00  0.01  0.78  1.00  0.88  (t= 1.00 f1= 0.93, T=1.1 ece→ 0.02)  n=414 pos=14
+  test-laya-ft-r3     1.00  0.02  1.00  0.93  0.96  (t= 0.67 f1= 1.00, T=0.5 ece→ 0.00)  n=414 pos=14
+  test-laya-ft-t1     1.00  0.00  1.00  1.00  1.00  (t= 0.80 f1= 1.00, T=1 ece→ 0.01)  n=414 pos=14
+  test-laya-ft        1.00  0.06  1.00  0.93  0.96  (t= 0.79 f1= 1.00, T=0.5 ece→ 0.01)  n=414 pos=14
+  test-laya-multilingual  0.44  0.67  0.02  0.21  0.04  (t= 0.88 f1= 0.07, T=8 ece→ 0.50)  n=414 pos=14
+  test-laya-typed     0.54  0.42   -    0.00   -    (t= 0.44 f1= 0.07, T=0.5 ece→ 0.38)  n=414 pos=14
+  test-qwen-en-swap   1.00  0.11  0.74  1.00  0.85  (t= 0.95 f1= 0.96, T=0.5 ece→ 0.05)  n=414 pos=14
+  test-qwen-en        1.00  0.13  0.74  1.00  0.85  (t= 0.96 f1= 0.96, T=0.5 ece→ 0.07)  n=414 pos=14
+  test-qwen-zh        1.00  0.11  0.70  1.00  0.82  (t= 0.99 f1= 0.96, T=0.6 ece→ 0.07)  n=414 pos=14
+  v1-laya-auto        0.49  0.61  0.04  0.30  0.07  (t= 0.43 f1= 0.11, T=8 ece→ 0.47)  n=974 pos=50
+  v1-laya-multilingual  0.45  0.70  0.04  0.40  0.08  (t= 0.49 f1= 0.10, T=8 ece→ 0.49)  n=974 pos=50
+  v1-laya-typed       0.51  0.45   -    0.00   -    (t= 0.51 f1= 0.11, T=0.7 ece→ 0.44)  n=974 pos=50
+  v1-qwen-en          1.00  0.13  0.77  1.00  0.87  (t= 0.98 f1= 1.00, T=0.8 ece→ 0.11)  n=974 pos=50
+== changes_code: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.59  0.25  0.57  0.98  0.72  (t= 0.40 f1= 0.72, T=5.5 ece→ 0.04)  n=951 pos=531
+  laya-ft-r3          1.00  0.01  0.97  1.00  0.98  (t= 0.90 f1= 0.99, T=1 ece→ 0.02)  n=951 pos=531
+  laya-ft-t1          0.96  0.05  0.92  1.00  0.96  (t= 1.00 f1= 0.97, T=1.7 ece→ 0.04)  n=951 pos=531
+  laya-ft             1.00  0.10  0.92  1.00  0.96  (t= 0.85 f1= 0.98, T=0.6 ece→ 0.03)  n=951 pos=531
+  laya-multilingual   0.62  0.31  0.56  1.00  0.72  (t= 0.65 f1= 0.73, T=6.1 ece→ 0.05)  n=951 pos=531
+  laya-typed          0.60  0.04  0.56  1.00  0.72  (t= 0.50 f1= 0.73, T=1 ece→ 0.04)  n=951 pos=531
+  qwen-en-r2          0.99  0.07  0.97  0.97  0.97  (t= 0.35 f1= 0.98, T=0.6 ece→ 0.04)  n=272 pos=152
+  qwen-en-swap        1.00  0.06  0.97  0.96  0.97  (t= 0.27 f1= 0.98, T=0.7 ece→ 0.04)  n=951 pos=531
+  qwen-en             0.99  0.06  0.97  0.98  0.97  (t= 0.35 f1= 0.98, T=0.6 ece→ 0.03)  n=951 pos=531
+  qwen-zh             0.99  0.06  0.95  0.98  0.97  (t= 0.38 f1= 0.97, T=0.6 ece→ 0.04)  n=951 pos=531
+  test-laya-auto      0.55  0.20  0.59  0.89  0.71  (t= 0.26 f1= 0.74, T=5.8 ece→ 0.06)  n=398 pos=231
+  test-laya-ft-r2     0.94  0.07  0.91  0.96  0.93  (t= 0.48 f1= 0.95, T=1.9 ece→ 0.02)  n=398 pos=231
+  test-laya-ft-r3     0.94  0.06  0.89  0.98  0.93  (t= 0.82 f1= 0.94, T=1.6 ece→ 0.07)  n=398 pos=231
+  test-laya-ft-t1     0.94  0.08  0.91  0.96  0.93  (t= 0.08 f1= 0.94, T=1.9 ece→ 0.05)  n=398 pos=231
+  test-laya-ft        0.94  0.08  0.90  0.98  0.94  (t= 0.38 f1= 0.94, T=0.7 ece→ 0.04)  n=398 pos=231
+  test-laya-multilingual  0.58  0.21  0.60  0.94  0.73  (t= 0.31 f1= 0.75, T=4.9 ece→ 0.05)  n=398 pos=231
+  test-laya-typed     0.46  0.09  0.59  1.00  0.74  (t= 0.40 f1= 0.74, T=2 ece→ 0.05)  n=398 pos=231
+  test-qwen-en-swap   1.00  0.07  0.99  0.98  0.98  (t= 0.29 f1= 0.99, T=0.5 ece→ 0.03)  n=398 pos=231
+  test-qwen-en        1.00  0.08  0.98  0.98  0.98  (t= 0.40 f1= 0.98, T=0.5 ece→ 0.02)  n=398 pos=231
+  test-qwen-zh        1.00  0.08  0.95  0.99  0.97  (t= 0.47 f1= 0.97, T=0.5 ece→ 0.03)  n=398 pos=231
+  v1-laya-auto        0.59  0.25  0.57  0.98  0.72  (t= 0.40 f1= 0.72, T=5.6 ece→ 0.04)  n=951 pos=531
+  v1-laya-multilingual  0.62  0.31  0.56  1.00  0.72  (t= 0.65 f1= 0.73, T=6.2 ece→ 0.05)  n=951 pos=531
+  v1-laya-typed       0.60  0.03  0.56  1.00  0.72  (t= 0.50 f1= 0.73, T=1 ece→ 0.03)  n=951 pos=531
+  v1-qwen-en          0.99  0.06  0.97  0.98  0.98  (t= 0.32 f1= 0.98, T=0.6 ece→ 0.03)  n=951 pos=531
+== has_verification: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.50  0.29  0.61  0.98  0.75  (t= 0.35 f1= 0.75, T=8 ece→ 0.03)  n=210 pos=126
+  laya-ft-r3          1.00  0.03  0.95  0.98  0.96  (t= 0.93 f1= 0.98, T=1.2 ece→ 0.03)  n=210 pos=126
+  laya-ft-t1          0.97  0.04  0.99  0.94  0.96  (t= 0.49 f1= 0.97, T=1.6 ece→ 0.05)  n=210 pos=126
+  laya-ft             0.98  0.11  0.99  0.94  0.96  (t= 0.40 f1= 0.97, T=0.5 ece→ 0.07)  n=210 pos=126
+  laya-multilingual   0.59  0.35  0.60  1.00  0.75  (t= 0.40 f1= 0.75, T=6.9 ece→ 0.06)  n=210 pos=126
+  laya-typed          0.61  0.03  0.60  0.99  0.75  (t= 0.54 f1= 0.75, T=0.7 ece→ 0.04)  n=210 pos=126
+  qwen-en-r2          1.00  0.03  0.97  1.00  0.99  (t= 0.40 f1= 0.99, T=1 ece→ 0.03)  n=60 pos=34
+  qwen-en-swap        1.00  0.03  0.95  1.00  0.98  (t= 0.56 f1= 0.98, T=1.1 ece→ 0.03)  n=210 pos=126
+  qwen-en             1.00  0.03  0.95  1.00  0.98  (t= 0.56 f1= 0.98, T=1.1 ece→ 0.03)  n=210 pos=126
+  qwen-zh             1.00  0.03  0.95  1.00  0.98  (t= 0.73 f1= 0.98, T=0.9 ece→ 0.03)  n=210 pos=126
+  test-laya-auto      0.52  0.34  0.57  0.96  0.72  (t= 0.33 f1= 0.73, T=8 ece→ 0.08)  n=90 pos=52
+  test-laya-ft-r2     0.87  0.15  0.97  0.75  0.85  (t= 0.01 f1= 0.86, T=3.1 ece→ 0.12)  n=90 pos=52
+  test-laya-ft-r3     0.91  0.15  0.97  0.75  0.85  (t= 0.09 f1= 0.90, T=2.5 ece→ 0.14)  n=90 pos=52
+  test-laya-ft-t1     0.90  0.12  1.00  0.81  0.89  (t= 0.40 f1= 0.89, T=2.6 ece→ 0.11)  n=90 pos=52
+  test-laya-ft        0.92  0.15  1.00  0.81  0.89  (t= 0.40 f1= 0.89, T=1.2 ece→ 0.15)  n=90 pos=52
+  test-laya-multilingual  0.60  0.34  0.58  0.98  0.73  (t= 0.33 f1= 0.73, T=7.7 ece→ 0.05)  n=90 pos=52
+  test-laya-typed     0.59  0.05  0.58  1.00  0.73  (t= 0.53 f1= 0.74, T=1 ece→ 0.05)  n=90 pos=52
+  test-qwen-en-swap   1.00  0.00  1.00  1.00  1.00  (t= 0.40 f1= 1.00, T=0.5 ece→ 0.00)  n=90 pos=52
+  test-qwen-en        1.00  0.00  1.00  1.00  1.00  (t= 0.40 f1= 1.00, T=0.5 ece→ 0.00)  n=90 pos=52
+  test-qwen-zh        1.00  0.02  1.00  1.00  1.00  (t= 0.40 f1= 1.00, T=0.5 ece→ 0.01)  n=90 pos=52
+  v1-laya-auto        0.50  0.29  0.61  0.98  0.75  (t= 0.35 f1= 0.75, T=8 ece→ 0.03)  n=210 pos=126
+  v1-laya-multilingual  0.59  0.35  0.60  1.00  0.75  (t= 0.79 f1= 0.75, T=7 ece→ 0.06)  n=210 pos=126
+  v1-laya-typed       0.63  0.03  0.60  0.99  0.75  (t= 0.54 f1= 0.75, T=0.6 ece→ 0.09)  n=210 pos=126
+  v1-qwen-en          1.00  0.03  0.95  1.00  0.98  (t= 0.53 f1= 0.98, T=1.1 ece→ 0.03)  n=210 pos=126
+== misses_task: AUROC / ECE / P / R / F1 at threshold (best-F1 threshold, fitted T)
+  laya-auto           0.44  0.48  0.25  0.61  0.35  (t= 0.20 f1= 0.41, T=8 ece→ 0.28)  n=210 pos=54
+  laya-ft-r3          0.90  0.09  0.84  0.70  0.77  (t= 0.73 f1= 0.78, T=1.6 ece→ 0.06)  n=210 pos=54
+  laya-ft-t1          0.88  0.14  0.71  0.22  0.34  (t= 0.09 f1= 0.70, T=2.1 ece→ 0.10)  n=210 pos=54
+  laya-ft             0.88  0.15  1.00  0.04  0.07  (t= 0.39 f1= 0.70, T=0.5 ece→ 0.08)  n=210 pos=54
+  laya-multilingual   0.37  0.63  0.23  0.83  0.36  (t= 0.26 f1= 0.41, T=8 ece→ 0.32)  n=210 pos=54
+  laya-typed          0.47  0.14   -    0.00   -    (t= 0.28 f1= 0.43, T=0.5 ece→ 0.12)  n=210 pos=54
+  qwen-en-r2          0.81  0.25  0.78  0.47  0.58  (t= 0.53 f1= 0.63, T=0.9 ece→ 0.25)  n=60 pos=15
+  qwen-en-swap        0.85  0.20  0.84  0.39  0.53  (t= 0.56 f1= 0.74, T=0.5 ece→ 0.15)  n=210 pos=54
+  qwen-en             0.84  0.24  0.81  0.46  0.59  (t= 0.62 f1= 0.67, T=0.7 ece→ 0.24)  n=210 pos=54
+  qwen-zh             0.84  0.06  1.00  0.18  0.31  (t= 0.41 f1= 0.68, T=0.8 ece→ 0.06)  n=210 pos=54
+  test-laya-auto      0.55  0.45  0.28  0.70  0.40  (t= 0.49 f1= 0.44, T=8 ece→ 0.29)  n=90 pos=23
+  test-laya-ft-r2     0.76  0.34  0.41  0.83  0.55  (t= 1.00 f1= 0.56, T=8 ece→ 0.27)  n=90 pos=23
+  test-laya-ft-r3     0.83  0.15  0.57  0.52  0.55  (t= 0.59 f1= 0.64, T=1.3 ece→ 0.16)  n=90 pos=23
+  test-laya-ft-t1     0.92  0.15  1.00  0.04  0.08  (t= 0.07 f1= 0.78, T=1.8 ece→ 0.13)  n=90 pos=23
+  test-laya-ft        0.91  0.23   -    0.00   -    (t= 0.37 f1= 0.79, T=0.5 ece→ 0.14)  n=90 pos=23
+  test-laya-multilingual  0.43  0.63  0.24  0.87  0.38  (t= 0.49 f1= 0.41, T=8 ece→ 0.33)  n=90 pos=23
+  test-laya-typed     0.47  0.15   -    0.00   -    (t= 0.30 f1= 0.41, T=0.5 ece→ 0.12)  n=90 pos=23
+  test-qwen-en-swap   0.95  0.31  0.95  0.87  0.91  (t= 0.73 f1= 0.93, T=0.5 ece→ 0.27)  n=90 pos=23
+  test-qwen-en        0.94  0.35  0.91  0.87  0.89  (t= 0.70 f1= 0.89, T=1.1 ece→ 0.35)  n=90 pos=23
+  test-qwen-zh        0.95  0.17  1.00  0.56  0.72  (t= 0.59 f1= 0.86, T=0.5 ece→ 0.10)  n=90 pos=23
+  v1-laya-auto        0.44  0.50  0.28  0.72  0.40  (t= 0.09 f1= 0.41, T=8 ece→ 0.29)  n=210 pos=54
+  v1-laya-multilingual  0.34  0.71  0.25  0.94  0.39  (t= 0.36 f1= 0.41, T=8 ece→ 0.35)  n=210 pos=54
+  v1-laya-typed       0.51  0.06   -    0.00   -    (t= 0.16 f1= 0.41, T=1.1 ece→ 0.06)  n=210 pos=54
+  v1-qwen-en          0.82  0.29  0.64  0.69  0.66  (t= 0.70 f1= 0.66, T=1.5 ece→ 0.29)  n=210 pos=54
+
+== product flags: P / R / F1
+  irreversible
+    laya-auto           0.10  0.84  0.18  (tp 58, fp 533, fn 11)
+    laya-ft-r3          1.00  0.87  0.93  (tp 60, fp 0, fn 9)
+    laya-ft-t1          1.00  0.74  0.85  (tp 51, fp 0, fn 18)
+    laya-ft             1.00  0.74  0.85  (tp 51, fp 0, fn 18)
+    laya-multilingual   0.08  0.99  0.15  (tp 68, fp 746, fn 1)
+    laya-typed          1.00  0.51  0.67  (tp 35, fp 0, fn 34)
+    qwen-en-r2          1.00  1.00  1.00  (tp 22, fp 0, fn 0)
+    qwen-en-swap        1.00  1.00  1.00  (tp 69, fp 0, fn 0)
+    qwen-en             1.00  1.00  1.00  (tp 69, fp 0, fn 0)
+    qwen-zh             1.00  1.00  1.00  (tp 69, fp 0, fn 0)
+    rules               1.00  0.51  0.67  (tp 35, fp 0, fn 34)
+    test-laya-auto      0.08  0.75  0.14  (tp 15, fp 175, fn 5)
+    test-laya-ft-r2     0.95  1.00  0.98  (tp 20, fp 1, fn 0)
+    test-laya-ft-r3     0.80  1.00  0.89  (tp 20, fp 5, fn 0)
+    test-laya-ft-t1     0.95  1.00  0.98  (tp 20, fp 1, fn 0)
+    test-laya-ft        0.95  0.90  0.92  (tp 18, fp 1, fn 2)
+    test-laya-multilingual  0.06  0.85  0.11  (tp 17, fp 277, fn 3)
+    test-laya-typed     1.00  0.35  0.52  (tp 7, fp 0, fn 13)
+    test-qwen-en-swap   1.00  0.95  0.97  (tp 19, fp 0, fn 1)
+    test-qwen-en        1.00  0.90  0.95  (tp 18, fp 0, fn 2)
+    test-qwen-zh        1.00  0.95  0.97  (tp 19, fp 0, fn 1)
+    test-rules          1.00  0.35  0.52  (tp 7, fp 0, fn 13)
+    v1-laya-auto        0.10  0.83  0.18  (tp 57, fp 514, fn 12)
+    v1-laya-multilingual  0.09  0.96  0.16  (tp 66, fp 700, fn 3)
+    v1-laya-typed       0.97  0.51  0.67  (tp 35, fp 1, fn 34)
+    v1-qwen-en          0.91  1.00  0.95  (tp 69, fp 7, fn 0)
+  external
+    laya-auto           0.12  0.65  0.21  (tp 70, fp 495, fn 38)
+    laya-ft-r3          0.99  0.97  0.98  (tp 105, fp 1, fn 3)
+    laya-ft-t1          0.98  0.79  0.87  (tp 85, fp 2, fn 23)
+    laya-ft             0.98  0.75  0.85  (tp 81, fp 2, fn 27)
+    laya-multilingual   0.11  0.81  0.19  (tp 87, fp 702, fn 21)
+    laya-typed          0.81  0.19  0.31  (tp 21, fp 5, fn 87)
+    qwen-en-r2          0.94  1.00  0.97  (tp 32, fp 2, fn 0)
+    qwen-en-swap        0.98  1.00  0.99  (tp 108, fp 2, fn 0)
+    qwen-en             0.97  1.00  0.99  (tp 108, fp 3, fn 0)
+    qwen-zh             0.95  0.98  0.97  (tp 106, fp 5, fn 2)
+    rules               1.00  0.19  0.33  (tp 21, fp 0, fn 87)
+    test-laya-auto      0.11  0.77  0.20  (tp 24, fp 191, fn 7)
+    test-laya-ft-r2     0.91  0.94  0.92  (tp 29, fp 3, fn 2)
+    test-laya-ft-r3     1.00  0.97  0.98  (tp 30, fp 0, fn 1)
+    test-laya-ft-t1     1.00  0.87  0.93  (tp 27, fp 0, fn 4)
+    test-laya-ft        1.00  0.87  0.93  (tp 27, fp 0, fn 4)
+    test-laya-multilingual  0.09  0.84  0.16  (tp 26, fp 265, fn 5)
+    test-laya-typed     1.00  0.13  0.23  (tp 4, fp 0, fn 27)
+    test-qwen-en-swap   1.00  1.00  1.00  (tp 31, fp 0, fn 0)
+    test-qwen-en        1.00  1.00  1.00  (tp 31, fp 0, fn 0)
+    test-qwen-zh        1.00  1.00  1.00  (tp 31, fp 0, fn 0)
+    test-rules          1.00  0.13  0.23  (tp 4, fp 0, fn 27)
+    v1-laya-auto        0.12  0.58  0.20  (tp 63, fp 466, fn 45)
+    v1-laya-multilingual  0.11  0.73  0.19  (tp 79, fp 659, fn 29)
+    v1-laya-typed       0.88  0.19  0.32  (tp 21, fp 3, fn 87)
+    v1-qwen-en          0.84  0.99  0.91  (tp 107, fp 21, fn 1)
+  extra
+    laya-auto           0.00  0.00   -    (tp 0, fp 3, fn 123)
+    laya-ft-r3          1.00  0.95  0.97  (tp 117, fp 0, fn 6)
+    laya-ft-t1          0.97  0.94  0.95  (tp 116, fp 4, fn 7)
+    laya-ft             0.97  0.94  0.95  (tp 116, fp 4, fn 7)
+    laya-multilingual   0.00  0.00   -    (tp 0, fp 1, fn 123)
+    laya-typed           -    0.00   -    (tp 0, fp 0, fn 123)
+    qwen-en-r2          1.00  0.94  0.97  (tp 33, fp 0, fn 2)
+    qwen-en-swap        1.00  0.92  0.96  (tp 113, fp 0, fn 10)
+    qwen-en             1.00  0.93  0.96  (tp 114, fp 0, fn 9)
+    qwen-zh             1.00  0.88  0.94  (tp 108, fp 0, fn 15)
+    rules                -    0.00   -    (tp 0, fp 0, fn 123)
+    test-laya-auto      1.00  0.04  0.07  (tp 2, fp 0, fn 54)
+    test-laya-ft-r2     0.65  1.00  0.79  (tp 56, fp 30, fn 0)
+    test-laya-ft-r3     0.85  0.82  0.84  (tp 46, fp 8, fn 10)
+    test-laya-ft-t1     0.68  1.00  0.81  (tp 56, fp 27, fn 0)
+    test-laya-ft        0.68  1.00  0.81  (tp 56, fp 26, fn 0)
+    test-laya-multilingual  1.00  0.02  0.04  (tp 1, fp 0, fn 55)
+    test-laya-typed      -    0.00   -    (tp 0, fp 0, fn 56)
+    test-qwen-en-swap   1.00  0.95  0.97  (tp 53, fp 0, fn 3)
+    test-qwen-en        1.00  0.88  0.93  (tp 49, fp 0, fn 7)
+    test-qwen-zh        1.00  0.84  0.91  (tp 47, fp 0, fn 9)
+    test-rules           -    0.00   -    (tp 0, fp 0, fn 56)
+    v1-laya-auto         -    0.00   -    (tp 0, fp 0, fn 123)
+    v1-laya-multilingual   -    0.00   -    (tp 0, fp 0, fn 123)
+    v1-laya-typed        -    0.00   -    (tp 0, fp 0, fn 123)
+    v1-qwen-en          1.00  0.92  0.96  (tp 113, fp 0, fn 10)
+  vague
+    laya-auto           0.04  0.42  0.08  (tp 21, fp 455, fn 29)
+    laya-ft-r3          1.00  1.00  1.00  (tp 50, fp 0, fn 0)
+    laya-ft-t1          1.00  0.98  0.99  (tp 49, fp 0, fn 1)
+    laya-ft             1.00  0.98  0.99  (tp 49, fp 0, fn 1)
+    laya-multilingual   0.04  0.54  0.08  (tp 27, fp 618, fn 23)
+    laya-typed           -    0.00   -    (tp 0, fp 0, fn 50)
+    qwen-en-r2          1.00  1.00  1.00  (tp 14, fp 0, fn 0)
+    qwen-en-swap        1.00  1.00  1.00  (tp 50, fp 0, fn 0)
+    qwen-en             1.00  1.00  1.00  (tp 50, fp 0, fn 0)
+    qwen-zh             1.00  1.00  1.00  (tp 50, fp 0, fn 0)
+    rules                -    0.00   -    (tp 0, fp 0, fn 50)
+    test-laya-auto      0.02  0.29  0.04  (tp 4, fp 160, fn 10)
+    test-laya-ft-r2     0.78  1.00  0.88  (tp 14, fp 4, fn 0)
+    test-laya-ft-r3     1.00  0.93  0.96  (tp 13, fp 0, fn 1)
+    test-laya-ft-t1     1.00  1.00  1.00  (tp 14, fp 0, fn 0)
+    test-laya-ft        1.00  0.93  0.96  (tp 13, fp 0, fn 1)
+    test-laya-multilingual  0.02  0.36  0.04  (tp 5, fp 222, fn 9)
+    test-laya-typed      -    0.00   -    (tp 0, fp 0, fn 14)
+    test-qwen-en-swap   0.70  1.00  0.82  (tp 14, fp 6, fn 0)
+    test-qwen-en        0.70  1.00  0.82  (tp 14, fp 6, fn 0)
+    test-qwen-zh        0.67  1.00  0.80  (tp 14, fp 7, fn 0)
+    test-rules           -    0.00   -    (tp 0, fp 0, fn 14)
+    v1-laya-auto        0.05  0.50  0.09  (tp 25, fp 494, fn 25)
+    v1-laya-multilingual  0.05  0.68  0.09  (tp 34, fp 667, fn 16)
+    v1-laya-typed        -    0.00   -    (tp 0, fp 0, fn 50)
+    v1-qwen-en          0.62  1.00  0.76  (tp 50, fp 31, fn 0)
+  no-verification
+    laya-auto           0.50  0.05  0.09  (tp 4, fp 4, fn 80)
+    laya-ft-r3          0.97  0.92  0.94  (tp 77, fp 2, fn 7)
+    laya-ft-t1          0.91  0.99  0.95  (tp 83, fp 8, fn 1)
+    laya-ft             0.91  0.99  0.95  (tp 83, fp 8, fn 1)
+    laya-multilingual   1.00  0.01  0.02  (tp 1, fp 0, fn 83)
+    laya-typed           -    0.00   -    (tp 0, fp 0, fn 84)
+    qwen-en-r2          1.00  0.92  0.96  (tp 24, fp 0, fn 2)
+    qwen-en-swap        1.00  0.92  0.96  (tp 77, fp 0, fn 7)
+    qwen-en             1.00  0.92  0.96  (tp 77, fp 0, fn 7)
+    qwen-zh             1.00  0.92  0.96  (tp 77, fp 0, fn 7)
+    rules               0.67  0.73  0.70  (tp 61, fp 30, fn 23)
+    test-laya-auto      1.00  0.03  0.05  (tp 1, fp 0, fn 35)
+    test-laya-ft-r2     0.73  0.97  0.83  (tp 35, fp 13, fn 1)
+    test-laya-ft-r3     0.72  1.00  0.84  (tp 36, fp 14, fn 0)
+    test-laya-ft-t1     0.77  1.00  0.87  (tp 36, fp 11, fn 0)
+    test-laya-ft        0.77  1.00  0.87  (tp 36, fp 11, fn 0)
+    test-laya-multilingual  1.00  0.03  0.05  (tp 1, fp 0, fn 35)
+    test-laya-typed      -    0.00   -    (tp 0, fp 0, fn 36)
+    test-qwen-en-swap   1.00  1.00  1.00  (tp 36, fp 0, fn 0)
+    test-qwen-en        1.00  1.00  1.00  (tp 36, fp 0, fn 0)
+    test-qwen-zh        1.00  1.00  1.00  (tp 36, fp 0, fn 0)
+    test-rules          0.59  0.94  0.72  (tp 34, fp 24, fn 2)
+    v1-laya-auto        1.00  0.05  0.09  (tp 4, fp 0, fn 80)
+    v1-laya-multilingual   -    0.00   -    (tp 0, fp 0, fn 84)
+    v1-laya-typed        -    0.00   -    (tp 0, fp 0, fn 84)
+    v1-qwen-en          1.00  0.80  0.89  (tp 67, fp 0, fn 17)
+  misses-task
+    laya-auto           0.25  0.61  0.35  (tp 33, fp 100, fn 21)
+    laya-ft-r3          0.84  0.70  0.77  (tp 38, fp 7, fn 16)
+    laya-ft-t1          0.69  0.20  0.31  (tp 11, fp 5, fn 43)
+    laya-ft             1.00  0.04  0.07  (tp 2, fp 0, fn 52)
+    laya-multilingual   0.23  0.83  0.36  (tp 45, fp 148, fn 9)
+    laya-typed           -    0.00   -    (tp 0, fp 0, fn 54)
+    qwen-en-r2          0.78  0.47  0.58  (tp 7, fp 2, fn 8)
+    qwen-en-swap        0.84  0.39  0.53  (tp 21, fp 4, fn 33)
+    qwen-en             0.81  0.46  0.59  (tp 25, fp 6, fn 29)
+    qwen-zh             1.00  0.18  0.31  (tp 10, fp 0, fn 44)
+    rules                -    0.00   -    (tp 0, fp 0, fn 54)
+    test-laya-auto      0.28  0.70  0.40  (tp 16, fp 42, fn 7)
+    test-laya-ft-r2     0.41  0.83  0.55  (tp 19, fp 27, fn 4)
+    test-laya-ft-r3     0.57  0.52  0.55  (tp 12, fp 9, fn 11)
+    test-laya-ft-t1     1.00  0.04  0.08  (tp 1, fp 0, fn 22)
+    test-laya-ft         -    0.00   -    (tp 0, fp 0, fn 23)
+    test-laya-multilingual  0.24  0.87  0.38  (tp 20, fp 63, fn 3)
+    test-laya-typed      -    0.00   -    (tp 0, fp 0, fn 23)
+    test-qwen-en-swap   0.95  0.87  0.91  (tp 20, fp 1, fn 3)
+    test-qwen-en        0.91  0.87  0.89  (tp 20, fp 2, fn 3)
+    test-qwen-zh        1.00  0.56  0.72  (tp 13, fp 0, fn 10)
+    test-rules           -    0.00   -    (tp 0, fp 0, fn 23)
+    v1-laya-auto        0.28  0.72  0.40  (tp 39, fp 101, fn 15)
+    v1-laya-multilingual  0.25  0.94  0.39  (tp 51, fp 156, fn 3)
+    v1-laya-typed        -    0.00   -    (tp 0, fp 0, fn 54)
+    v1-qwen-en          0.64  0.69  0.66  (tp 37, fp 21, fn 17)
+
+== per plan: latency p50 / p95 ms, calls, input tokens
+  laya-auto             164    314    5.8    5219  failed calls 0
+  laya-ft-r3            131    184    5.8    5172  failed calls 0
+  laya-ft-t1            132    178    5.8    5172  failed calls 0
+  laya-ft               144    202    5.8    5172  failed calls 0
+  laya-multilingual     133    177    5.8    5172  failed calls 0
+  laya-typed            262    389    5.8    6190  failed calls 0
+  qwen-en-r2           2142   2860   25.8    7243  failed calls 0
+  qwen-en-swap         4214   5703   51.7   14395  failed calls 0
+  qwen-en              2128   2877   25.8    7198  failed calls 0
+  qwen-zh              2117   2848   25.8    7105  failed calls 0
+  rules                   0      1      0       0  failed calls 0
+  test-laya-auto        163    318    5.6    5171  failed calls 0
+  test-laya-ft-r2       134    196    5.6    5123  failed calls 0
+  test-laya-ft-r3       155    210    5.6    5123  failed calls 0
+  test-laya-ft-t1       132    159    5.6    5123  failed calls 0
+  test-laya-ft          140    199    5.6    5123  failed calls 0
+  test-laya-multilingual    138    198    5.6    5123  failed calls 0
+  test-laya-typed       281    371    5.6    6198  failed calls 0
+  test-qwen-en-swap    4369   5395     50   14286  failed calls 0
+  test-qwen-en         2252   4394     25    7143  failed calls 0
+  test-qwen-zh         2168   2681     25    7053  failed calls 0
+  test-rules              0      1      0       0  failed calls 0
+  v1-laya-auto          160    293    5.8    4910  failed calls 0
+  v1-laya-multilingual    133    179    5.8    4862  failed calls 0
+  v1-laya-typed         247    354    5.8    5877  failed calls 0
+  v1-qwen-en           2043   2785   25.8    6873  failed calls 0
+
+== beyond rules (positives the rules miss / caught by the engine)
+  laya-auto          irreversible 25/34, external 49/87
+  laya-ft-r3         irreversible 25/34, external 84/87
+  laya-ft-t1         irreversible 16/34, external 64/87
+  laya-ft            irreversible 16/34, external 60/87
+  laya-multilingual  irreversible 34/34, external 66/87
+  laya-typed         irreversible 0/34, external 0/87
+  qwen-en-r2         irreversible 11/11, external 25/25
+  qwen-en-swap       irreversible 34/34, external 87/87
+  qwen-en            irreversible 34/34, external 87/87
+  qwen-zh            irreversible 34/34, external 85/87
+  test-laya-auto     irreversible 9/13, external 20/27
+  test-laya-ft-r2    irreversible 13/13, external 25/27
+  test-laya-ft-r3    irreversible 13/13, external 26/27
+  test-laya-ft-t1    irreversible 13/13, external 23/27
+  test-laya-ft       irreversible 11/13, external 23/27
+  test-laya-multilingual irreversible 12/13, external 22/27
+  test-laya-typed    irreversible 0/13, external 0/27
+  test-qwen-en-swap  irreversible 13/13, external 27/27
+  test-qwen-en       irreversible 13/13, external 27/27
+  test-qwen-zh       irreversible 12/13, external 27/27
+  v1-laya-auto       irreversible 24/34, external 42/87
+  v1-laya-multilingual irreversible 33/34, external 58/87
+  v1-laya-typed      irreversible 1/34, external 0/87
+  v1-qwen-en         irreversible 34/34, external 86/87
+
+== pairs: mean |Δp| per question, flag flip rate
+  qwen-en vs qwen-en-r2        {"irreversible":0.002,"external":0.002,"extra":0.001,"vague":0.006,"changes_code":0.004} flips 0
+  qwen-en vs qwen-en-swap      {"irreversible":0.009,"external":0.012,"extra":0.006,"vague":0.023,"changes_code":0.021} flips 0.0017
+  qwen-en vs qwen-zh           {"irreversible":0.026,"external":0.025,"extra":0.016,"vague":0.043,"changes_code":0.035} flips 0.0052
+  v1-qwen-en vs qwen-en        {"irreversible":0.023,"external":0.025,"extra":0.003,"vague":0.109,"changes_code":0.005} flips 0.0207

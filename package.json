@@ -1,0 +1,65 @@
+{
+  "name": "dsh-plan-checkup",
+  "version": "0.1.0",
+  "description": "Plan Checkup for DeepSeek Harness: checks each step of a plan with Jev or a local LLM before you approve it, and marks the results on the plan review card.",
+  "license": "MIT",
+  "author": "Bear0117 (https://github.com/Bear0117)",
+  "homepage": "https://github.com/Bear0117/dsh-plan-checkup#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bear0117/dsh-plan-checkup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bear0117/dsh-plan-checkup/issues"
+  },
+  "type": "module",
+  "main": "./src/host/index.js",
+  "exports": {
+    ".": "./src/host/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "cordis.patch.yml",
+    "README.zh-CN.md",
+    "README.zh-TW.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "plan-mode",
+    "jev",
+    "llm",
+    "logprobs"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "dev:llm": "node m0/mock-llm.mjs 18765 .dev/mock-llm.jsonl",
+    "dev:jev": "node dev/mock-jev.mjs 18766 .dev/mock-jev.jsonl",
+    "dev:logprobs": "node dev/mock-logprobs.mjs 18767 .dev/mock-logprobs.jsonl",
+    "probe": "node dev/probe.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-user-questions"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": ">=0.2.0-rc.2 <0.3.0-0"
+  }
+}

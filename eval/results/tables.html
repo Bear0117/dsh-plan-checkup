@@ -1,0 +1,95 @@
+<section data-table="heldout-flags">
+<div class="table-wrap"><table>
+<caption>保留測試集：卡片上的標記，採用的門檻（精確率 / 召回率，依 F1 上色）</caption>
+<thead><tr><th>標記</th><th class="num">Qwen · 英文題目</th><th class="num">Qwen · 中文題目</th><th class="num">Laya 自動分流</th><th class="num">Laya typed-decisions</th><th class="num">只用規則</th></tr></thead>
+<tbody>
+<tr><td>無法復原</td><td class="num good">1.00 / 1.00</td><td class="num good">1.00 / 0.95</td><td class="num bad">0.07 / 0.80</td><td class="num bad">1.00 / 0.35</td><td class="num bad">1.00 / 0.35</td></tr>
+<tr><td>影響外部</td><td class="num good">1.00 / 1.00</td><td class="num good">1.00 / 1.00</td><td class="num bad">0.11 / 0.77</td><td class="num bad">1.00 / 0.13</td><td class="num bad">1.00 / 0.13</td></tr>
+<tr><td>需求沒提到</td><td class="num good">1.00 / 1.00</td><td class="num good">1.00 / 0.95</td><td class="num bad">0.10 / 0.05</td><td class="num bad">0.50 / 0.02</td><td class="num bad">— / 0.00</td></tr>
+<tr><td>描述太模糊</td><td class="num warn">0.74 / 1.00</td><td class="num warn">0.70 / 1.00</td><td class="num bad">0.03 / 0.21</td><td class="num bad">— / 0.00</td><td class="num bad">— / 0.00</td></tr>
+<tr><td>沒有驗證步驟</td><td class="num good">1.00 / 1.00</td><td class="num good">1.00 / 1.00</td><td class="num bad">0.50 / 0.03</td><td class="num bad">— / 0.00</td><td class="num warn">0.59 / 0.94</td></tr>
+<tr><td>可能漏了需求</td><td class="num good">0.91 / 0.87</td><td class="num warn">1.00 / 0.56</td><td class="num bad">0.28 / 0.70</td><td class="num bad">— / 0.00</td><td class="num bad">— / 0.00</td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="heldout-auroc">
+<div class="table-wrap"><table>
+<caption>保留測試集：各題的 AUROC（括號內 ECE）</caption>
+<thead><tr><th>題目</th><th class="num">Qwen · 英文題目</th><th class="num">Qwen · 中文題目</th><th class="num">Laya 自動分流</th><th class="num">Laya typed-decisions</th></tr></thead>
+<tbody>
+<tr><td>無法復原 irreversible</td><td class="num good">1.00 <span class="sub">(0.04)</span></td><td class="num good">1.00 <span class="sub">(0.05)</span></td><td class="num bad">0.58 <span class="sub">(0.56)</span></td><td class="num warn">0.68 <span class="sub">(0.37)</span></td></tr>
+<tr><td>影響外部 external</td><td class="num good">1.00 <span class="sub">(0.02)</span></td><td class="num good">1.00 <span class="sub">(0.02)</span></td><td class="num bad">0.56 <span class="sub">(0.62)</span></td><td class="num warn">0.65 <span class="sub">(0.45)</span></td></tr>
+<tr><td>需求沒提到 scope=extra</td><td class="num good">1.00 <span class="sub">(0.02)</span></td><td class="num good">1.00 <span class="sub">(0.02)</span></td><td class="num bad">0.55 <span class="sub">(0.07)</span></td><td class="num bad">0.46 <span class="sub">(0.08)</span></td></tr>
+<tr><td>描述太模糊 vague</td><td class="num good">1.00 <span class="sub">(0.13)</span></td><td class="num good">1.00 <span class="sub">(0.11)</span></td><td class="num bad">0.50 <span class="sub">(0.57)</span></td><td class="num bad">0.54 <span class="sub">(0.42)</span></td></tr>
+<tr><td>會改程式 changes_code</td><td class="num good">1.00 <span class="sub">(0.08)</span></td><td class="num good">1.00 <span class="sub">(0.08)</span></td><td class="num bad">0.55 <span class="sub">(0.20)</span></td><td class="num bad">0.46 <span class="sub">(0.09)</span></td></tr>
+<tr><td>有驗證步驟 has_verification</td><td class="num good">1.00 <span class="sub">(0.00)</span></td><td class="num good">1.00 <span class="sub">(0.02)</span></td><td class="num bad">0.52 <span class="sub">(0.34)</span></td><td class="num bad">0.59 <span class="sub">(0.05)</span></td></tr>
+<tr><td>漏了需求 misses_task</td><td class="num good">0.94 <span class="sub">(0.35)</span></td><td class="num good">0.95 <span class="sub">(0.17)</span></td><td class="num bad">0.55 <span class="sub">(0.45)</span></td><td class="num bad">0.47 <span class="sub">(0.15)</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="rounds">
+<div class="table-wrap"><table>
+<caption>開發集：第一輪與第二輪（Qwen · 英文題目）</caption>
+<thead><tr><th>項目</th><th class="num">第一輪</th><th class="num">第二輪</th></tr></thead>
+<tbody>
+<tr><td>無法復原（精確率 / 召回率）</td><td class="num good">0.91 / 1.00</td><td class="num good">1.00 / 1.00</td></tr>
+<tr><td>影響外部（精確率 / 召回率）</td><td class="num good">0.84 / 0.99</td><td class="num good">0.97 / 1.00</td></tr>
+<tr><td>需求沒提到（精確率 / 召回率）</td><td class="num good">1.00 / 0.92</td><td class="num good">1.00 / 0.93</td></tr>
+<tr><td>描述太模糊（精確率 / 召回率）</td><td class="num warn">0.62 / 1.00</td><td class="num good">1.00 / 1.00</td></tr>
+<tr><td>沒有驗證步驟（精確率 / 召回率）</td><td class="num good">1.00 / 0.80</td><td class="num good">1.00 / 0.92</td></tr>
+<tr><td>可能漏了需求（精確率 / 召回率）</td><td class="num warn">0.64 / 0.69</td><td class="num bad">0.81 / 0.46</td></tr>
+<tr><td>只提到測試、其實沒驗證的計畫，有標出沒有驗證</td><td class="num bad">0.06</td><td class="num warn">0.65</td></tr>
+<tr><td>刪除有進版控的檔案，被標成無法復原（越低越好）</td><td class="num bad">0.41</td><td class="num good">0.00</td></tr>
+<tr><td>需求要求的危險步驟，有被標出</td><td class="num good">1.00</td><td class="num good">1.00</td></tr>
+<tr><td>需求要求的危險步驟，被誤判成需求沒提到（越低越好）</td><td class="num good">0.00</td><td class="num good">0.00</td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="beyond-rules">
+<div class="table-wrap"><table>
+<caption>規則抓不到、由判斷引擎補上的步驟</caption>
+<thead><tr><th></th><th class="num">開發集</th><th class="num">保留測試集</th></tr></thead>
+<tbody>
+<tr><td>無法復原</td><td class="num ">規則 35/69，引擎再補 34/34</td><td class="num ">規則 7/20，引擎再補 13/13</td></tr>
+<tr><td>影響外部</td><td class="num ">規則 21/108，引擎再補 87/87</td><td class="num ">規則 4/31，引擎再補 27/27</td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="latency">
+<div class="table-wrap"><table>
+<caption>每份計畫的延遲與請求數（開發集）</caption>
+<thead><tr><th>引擎</th><th class="num">p50</th><th class="num">p95</th><th class="num">請求數</th><th class="num">輸入 token</th></tr></thead>
+<tbody>
+<tr><td>Qwen · 英文題目</td><td class="num ">2.13 秒</td><td class="num ">2.88 秒</td><td class="num ">25.8</td><td class="num ">7198</td></tr>
+<tr><td>Qwen · 中文題目</td><td class="num ">2.12 秒</td><td class="num ">2.85 秒</td><td class="num ">25.8</td><td class="num ">7105</td></tr>
+<tr><td>Qwen · 英文正反各問</td><td class="num ">4.21 秒</td><td class="num ">5.70 秒</td><td class="num ">51.7</td><td class="num ">14395</td></tr>
+<tr><td>Laya 自動分流</td><td class="num ">0.16 秒</td><td class="num ">0.31 秒</td><td class="num ">5.8</td><td class="num ">5219</td></tr>
+<tr><td>Laya typed-decisions</td><td class="num ">0.26 秒</td><td class="num ">0.39 秒</td><td class="num ">5.8</td><td class="num ">6190</td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="pairs">
+<div class="table-wrap"><table>
+<caption>同一批計畫跑兩次的差異（機率平均絕對差，最後一欄為標記改變的比例）</caption>
+<thead><tr><th>比較</th><th class="num">irreversible</th><th class="num">external</th><th class="num">extra</th><th class="num">vague</th><th class="num">標記改變</th></tr></thead>
+<tbody>
+<tr><td>同一設定重跑（60 份）</td><td class="num ">0.002</td><td class="num ">0.002</td><td class="num ">0.001</td><td class="num ">0.006</td><td class="num ">0.0%</td></tr>
+<tr><td>單一順序 vs 正反平均（210 份）</td><td class="num ">0.009</td><td class="num ">0.012</td><td class="num ">0.006</td><td class="num ">0.023</td><td class="num ">0.2%</td></tr>
+<tr><td>英文題目 vs 中文題目（210 份）</td><td class="num ">0.026</td><td class="num ">0.025</td><td class="num ">0.016</td><td class="num ">0.043</td><td class="num ">0.5%</td></tr>
+<tr><td>第一輪 vs 第二輪題目（210 份）</td><td class="num ">0.023</td><td class="num ">0.025</td><td class="num ">0.003</td><td class="num ">0.109</td><td class="num ">2.1%</td></tr>
+</tbody></table></div>
+</section>
+
+<section data-table="thresholds">
+<div class="table-wrap"><table>
+<caption>門檻：現行值、開發集挑出的候選值、最後採用的值（保留測試集上卡片標記的 F1）</caption>
+<thead><tr><th>標記</th><th class="num">現行</th><th class="num">開發集候選</th><th class="num">採用</th><th class="num">Qwen · 英文題目：現行 → 候選 → 採用</th><th class="num">Qwen · 中文題目：現行 → 候選 → 採用</th></tr></thead>
+<tbody>
+<tr><td>無法復原</td><td class="num ">0.6</td><td class="num ">0.6</td><td class="num "><b>0.6</b></td><td class="num good">1.00 → 1.00 → <b>1.00</b></td><td class="num good">0.97 → 0.97 → <b>0.97</b></td></tr>
+<tr><td>影響外部</td><td class="num ">0.7</td><td class="num ">0.8</td><td class="num "><b>0.7</b></td><td class="num good">1.00 → 1.00 → <b>1.00</b></td><td class="num good">1.00 → 0.95 → <b>1.00</b></td></tr>
+<tr><td>需求沒提到</td><td class="num ">0.4</td><td class="num ">0.4</td><td class="num "><b>0.4</b></td><td class="num good">1.00 → 1.00 → <b>1.00</b></td><td class="num good">0.97 → 0.97 → <b>0.97</b></td></tr>
+<tr><td>描述太模糊</td><td class="num ">0.8</td><td class="num ">0.8</td><td class="num "><b>0.8</b></td><td class="num warn">0.85 → 0.85 → <b>0.85</b></td><td class="num warn">0.82 → 0.82 → <b>0.82</b></td></tr>
+<tr><td>沒有驗證步驟<span class="sub">（另加 changesCode 0.4 → 0.4）</span></td><td class="num ">0.4</td><td class="num ">0.4</td><td class="num "><b>0.4</b></td><td class="num good">1.00 → 1.00 → <b>1.00</b></td><td class="num good">1.00 → 1.00 → <b>1.00</b></td></tr>
+<tr><td>可能漏了需求</td><td class="num ">0.7</td><td class="num ">0.6</td><td class="num "><b>0.7</b></td><td class="num good">0.89 → 0.70 → <b>0.89</b></td><td class="num warn">0.72 → 0.78 → <b>0.72</b></td></tr>
+</tbody></table></div>
+</section>
