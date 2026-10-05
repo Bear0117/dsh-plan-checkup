@@ -4,6 +4,8 @@ English · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md)
 
 A plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh). When the agent hands in a plan in plan mode, Plan Checkup reads it step by step before you approve it, and marks what it finds on the plan review card.
 
+![The details panel opened from the Plan checkup badge on a plan review card](screenshots/en-panel.png)
+
 | Flag | Meaning | Found by |
 |---|---|---|
 | 🔴 Can't be undone | Deletes or overwrites existing data, history or resources | Command rules (`DROP TABLE`, `rm -rf`, `git push --force`, …) or the judgment engine |
@@ -22,6 +24,8 @@ It only advises. It never blocks, rewrites or approves a plan, and nothing leave
 3. Click the badge for the details: each flagged step, the flags with their probabilities, the commands a rule matched, and the notes about the whole plan. Each flag has 👍 / 👎 buttons; your votes are kept in a local file and can be used to recalibrate thresholds later.
 4. To have the agent revise the plan, click **Put in the message box**, then **Request changes** on the card. The message box then holds a ready-made list of the problems, which you can edit and send. **Copy feedback** copies the same text.
 5. **Approve** runs the plan as usual.
+
+![The feedback text in the message box after Request changes](screenshots/en-feedback.png)
 
 If the engine can't be reached, the badge says *Rules only*, the panel gives the reason, and the review goes on normally.
 
@@ -190,6 +194,8 @@ npm run probe -- …        # test a judgment engine with one plan (see above)
 ```bash
 DSH_HOME=.m0/home M0_MOCK_API_KEY=mock dsh web --patch dev/overlay-llm.yml --port 3190 --no-open
 ```
+
+`node dev/screenshot.mjs <dsh-url> <lang> <request> <out.png> [--feedback <out.png>]` retakes the screenshots against a running dsh web, using Edge or Chrome and no extra packages; `MOCK_PLAN_LANG=en` or `zh-CN` makes the mock planner hand in its plan in that language.
 
 The mocks can simulate errors: `MOCK_JEV_MODE=401|402|429|529|slow` and `MOCK_LLM_MODE=401|429|503|slow|nologprobs|think`. The browser half, `lib/client.js`, is written by hand in the dsh client-module format, so there is no build step. Notes on the dsh hooks it relies on are in [m0/README.md](m0/README.md).
 

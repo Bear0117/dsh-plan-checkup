@@ -4,6 +4,8 @@
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）插件。agent 在计划模式交出计划、你点「同意执行」之前，它会逐步检查每一步，把结果标在计划审阅卡片上。
 
+![从计划审阅卡片上的「计划体检」徽章打开的细节面板](screenshots/zh-CN-panel.png)
+
 | 标记 | 意思 | 判断方式 |
 |---|---|---|
 | 🔴 无法恢复 | 会删除或覆盖现有的数据、历史或资源 | 命令规则（`DROP TABLE`、`rm -rf`、`git push --force` 等）或判断引擎 |
@@ -22,6 +24,8 @@
 3. 点击徽章查看细节：每个有标记的步骤、标记与概率、规则命中的命令，以及关于整份计划的提醒。每个标记旁有 👍 / 👎，你的投票会记在本机文件里，之后可以用来重新校准门槛。
 4. 要让 agent 修改计划：先点「填入输入框」，再点卡片上的「要求修改」。输入框里会出现整理好的问题清单，确认或修改后发送即可。「复制反馈」会复制同样的文字。
 5. 点「同意执行」就照常执行。
+
+![点「要求修改」后，输入框里的反馈文字](screenshots/zh-CN-feedback.png)
 
 连不上判断引擎时，徽章显示「只用规则」，面板写明原因，审阅照常进行。
 
@@ -190,6 +194,8 @@ npm run probe -- …        # 用一份计划测试判断引擎（见上文）
 ```bash
 DSH_HOME=.m0/home M0_MOCK_API_KEY=mock dsh web --patch dev/overlay-llm.yml --port 3190 --no-open
 ```
+
+`node dev/screenshot.mjs <dsh-url> <lang> <request> <out.png> [--feedback <out.png>]` 会对运行中的 dsh web 重拍截图，用 Edge 或 Chrome，不需要另外安装套件；`MOCK_PLAN_LANG=en` 或 `zh-CN` 让假的规划模型用该语言交出计划。
 
 假服务可以模拟错误：`MOCK_JEV_MODE=401|402|429|529|slow`、`MOCK_LLM_MODE=401|429|503|slow|nologprobs|think`。浏览器端的 `lib/client.js` 是手写的 dsh 客户端模块格式，没有构建步骤。它依赖的 dsh 挂载点的实测记录在 [m0/README.md](m0/README.md)。
 

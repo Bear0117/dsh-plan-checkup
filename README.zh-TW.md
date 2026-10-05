@@ -4,6 +4,8 @@
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）插件。agent 在計畫模式交出計畫、你按「同意執行」之前，它會逐步檢查每一步，把結果標在計畫審閱卡片上。
 
+![從計畫審閱卡片上的「計畫體檢」徽章打開的細節面板（lang 設為 zh-TW）](screenshots/zh-TW-panel.png)
+
 | 標記 | 意思 | 判斷方式 |
 |---|---|---|
 | 🔴 無法復原 | 會刪除或覆寫既有的資料、歷史或資源 | 指令規則（`DROP TABLE`、`rm -rf`、`git push --force` 等）或判斷引擎 |
@@ -190,6 +192,8 @@ npm run probe -- …        # 用一份計畫測試判斷引擎（見上文）
 ```bash
 DSH_HOME=.m0/home M0_MOCK_API_KEY=mock dsh web --patch dev/overlay-llm.yml --port 3190 --no-open
 ```
+
+`node dev/screenshot.mjs <dsh-url> <lang> <request> <out.png> [--feedback <out.png>]` 會對執行中的 dsh web 重拍截圖，用 Edge 或 Chrome，不需要另外安裝套件；`MOCK_PLAN_LANG=en` 或 `zh-CN` 讓假的規劃模型用該語言交出計畫。
 
 假服務可以模擬錯誤：`MOCK_JEV_MODE=401|402|429|529|slow`、`MOCK_LLM_MODE=401|429|503|slow|nologprobs|think`。瀏覽器端的 `lib/client.js` 是手寫的 dsh 用戶端模組格式，沒有建置步驟。它依賴的 dsh 掛點的實測紀錄在 [m0/README.md](m0/README.md)。
 

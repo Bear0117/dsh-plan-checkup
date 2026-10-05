@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Fixed: when a step's flags wrap onto a second line, each flag keeps its 👍 / 👎 buttons beside it instead of leaving them on a line of their own.
+- Added screenshots in English, Simplified Chinese and Traditional Chinese (`screenshots/`, listed in `screenshots.json` for the plugin catalog), and `dev/screenshot.mjs`, which retakes them against a running dsh web.
+- The mock planner can hand in its plan in English or Simplified Chinese (`MOCK_PLAN_LANG`).
+
 ## 0.1.0 (2026-10-01)
 
 First public release.
