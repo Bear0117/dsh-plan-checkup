@@ -43,6 +43,12 @@ dsh plugin --profile web add dsh-plan-checkup
 
 If you run dsh through npx, use `npx @deepseek-ai/dsh plugin --profile web add dsh-plan-checkup`. Restart `dsh web` afterwards. Until a judgment engine is configured, only the command rules run and the badge says *Rules only*.
 
+**Update:** run `dsh plugin --profile web update dsh-plan-checkup` (through npx, `npx @deepseek-ai/dsh plugin --profile web update dsh-plan-checkup`), then restart `dsh web`.
+
+- dsh installs plugins with pnpm, and pnpm picks a newly published version only once it is a day old. For the first day after a release, `update` stays on the version you have; to update right away, name the version, for example `dsh plugin --profile web add dsh-plan-checkup@0.1.1`.
+- `update` stays within the minor version you have (0.1.x). To move to a new minor version such as 0.2.0, run `dsh plugin --profile web add dsh-plan-checkup@latest`; the one-day wait applies here too.
+- The [releases page](https://github.com/Bear0117/dsh-plan-checkup/releases) lists each version and what changed.
+
 To remove it, run `dsh plugin --profile web remove dsh-plan-checkup` and delete the `plan-checkup` entry from your profile's `cordis.patch.yml` if you added one.
 
 ## Set up a judgment engine

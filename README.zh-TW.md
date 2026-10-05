@@ -41,6 +41,12 @@ dsh plugin --profile web add dsh-plan-checkup
 
 如果你用 npx 執行 dsh，改用 `npx @deepseek-ai/dsh plugin --profile web add dsh-plan-checkup`。裝好後重啟 `dsh web`。還沒設定判斷引擎時只跑指令規則，徽章會顯示「只用規則」。
 
+**更新**：執行 `dsh plugin --profile web update dsh-plan-checkup`（用 npx 的話是 `npx @deepseek-ai/dsh plugin --profile web update dsh-plan-checkup`），再重啟 `dsh web`。
+
+- dsh 用 pnpm 安裝插件，而 pnpm 要等新版本發布滿一天才會選它。發布後的第一天，`update` 會停在你現有的版本；想馬上更新，就寫明版本號，例如 `dsh plugin --profile web add dsh-plan-checkup@0.1.1`。
+- `update` 只在同一個次版本內更新（0.1.x）。要升到新的次版本（例如 0.2.0），執行 `dsh plugin --profile web add dsh-plan-checkup@latest`，一樣要等新版本滿一天。
+- 每個版本改了什麼，見 [Releases 頁面](https://github.com/Bear0117/dsh-plan-checkup/releases)。
+
 移除：執行 `dsh plugin --profile web remove dsh-plan-checkup`；如果你在 profile 的 `cordis.patch.yml` 加過 `plan-checkup` 段落，也一起刪掉。
 
 ## 設定判斷引擎
