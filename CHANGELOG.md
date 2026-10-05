@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 (2026-10-05)
 
 - Fixed: when a step's flags wrap onto a second line, each flag keeps its 👍 / 👎 buttons beside it instead of leaving them on a line of their own.
 - Added screenshots in English, Simplified Chinese and Traditional Chinese (`screenshots/`, listed in `screenshots.json` for the plugin catalog), and `dev/screenshot.mjs`, which retakes them against a running dsh web.

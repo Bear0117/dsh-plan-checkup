@@ -1,6 +1,6 @@
 {
   "name": "dsh-plan-checkup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plan Checkup for DeepSeek Harness: checks each step of a plan with Jev or a local LLM before you approve it, and marks the results on the plan review card.",
   "license": "MIT",
   "author": "Bear0117 (https://github.com/Bear0117)",
